@@ -24,6 +24,14 @@ class MyXBlock(XBlock):
         """Handy helper for getting resources from our kit."""
         return files(__package__).joinpath(path).read_text(encoding="utf-8")
 
+    def studio_view(self, context=None):
+        html = self.resource_string("static/html/teacher.html")
+        frag = Fragment(html.format(self=self))
+        frag.add_css(self.resource_string("static/css/voice.css"))
+        frag.add_javascript(self.resource_string("static/js/src/voice.js"))
+        frag.initialize_js('MyXBlock')
+        return frag
+
     # TO-DO: change this view to display your data your own way.
     def student_view(self, context=None):
         """
@@ -44,7 +52,11 @@ class MyXBlock(XBlock):
         frag.initialize_js('MyXBlock')
         return frag
  
-
+    @XBlock.json_handler
+    def save_question(self, data, suffix=''):
+        self.question_text="question"
+        self.save()
+        return {"status": "run"}
     def save_answer(self, answer):
         """
         Phương thức để lưu câu trả lời của học viên vào hệ thống.
