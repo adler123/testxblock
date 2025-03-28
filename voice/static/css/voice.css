@@ -1,0 +1,9 @@
+/* CSS for MyXBlock */
+
+.voice_block .count {
+    font-weight: bold;
+}
+
+.voice_block p {
+    cursor: pointer;
+}

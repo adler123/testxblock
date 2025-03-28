@@ -1,0 +1,13 @@
+setup.py
+voice/__init__.py
+voice/voice.py
+voice/static/README.txt
+voice/static/css/voice.css
+voice/static/html/voice.html
+voice/static/js/src/voice.js
+voice_xblock.egg-info/PKG-INFO
+voice_xblock.egg-info/SOURCES.txt
+voice_xblock.egg-info/dependency_links.txt
+voice_xblock.egg-info/entry_points.txt
+voice_xblock.egg-info/requires.txt
+voice_xblock.egg-info/top_level.txt

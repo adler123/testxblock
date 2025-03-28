@@ -1,0 +1,9 @@
+Metadata-Version: 2.2
+Name: voice-xblock
+Version: 0.1
+Summary: voice XBlock
+License: UNKNOWN
+Requires-Dist: XBlock
+Dynamic: license
+Dynamic: requires-dist
+Dynamic: summary
