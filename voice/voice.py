@@ -31,18 +31,18 @@ class MyXBlock(XBlock):
         when viewing courses.
         """
         html = self.resource_string("static/html/voice.html")
-        context = {
-            'question': self.question_text,
-            'student_answer': self.student_answer,
-            'student_score': self.student_score
-        }
-        css = self.resource_string("static/css/voice.css")
-        return html % context + "<style>" + css.decode() + "</style>"
-        # frag = Fragment(html.format(self=self))
-        # frag.add_css(self.resource_string("static/css/voice.css"))
-        # frag.add_javascript(self.resource_string("static/js/src/voice.js"))
-        # frag.initialize_js('MyXBlock')
-        # return frag
+        # context = {
+        #     'question': self.question_text,
+        #     'student_answer': self.student_answer,
+        #     'student_score': self.student_score
+        # }
+        # css = self.resource_string("static/css/voice.css")
+        # return html % context + "<style>" + css.decode() + "</style>"
+        frag = Fragment(html.format(self=self))
+        frag.add_css(self.resource_string("static/css/voice.css"))
+        frag.add_javascript(self.resource_string("static/js/src/voice.js"))
+        frag.initialize_js('MyXBlock')
+        return frag
  
 
     def save_answer(self, answer):
