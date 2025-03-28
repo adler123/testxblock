@@ -55,8 +55,8 @@ class MyXBlock(XBlock):
     @XBlock.json_handler
     def save_question(self, data, suffix=''):
         print("test")
-        print(data)
-        self.question_text=data['question']
+        question = data.get('question', '').strip()
+        self.question_text=question
         self.save()
         return {"status": "ok"}
     @XBlock.json_handler
