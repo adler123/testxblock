@@ -1,36 +1,6 @@
-<div class="question-input-container">
-    <h3>Câu hỏi của giáo viên: </h3>
-    <p>{{ question }}</p>
+
     
-    <h4>Nhập câu trả lời của bạn:</h4>
-    <textarea id="answer-input" rows="4" cols="50">{{ student_answer }}</textarea>
+    <h4>Nhập câu hỏi của giáo viên:</h4>
+    <textarea id="answer-input" rows="4" cols="50">{{ self.question_text }}</textarea>
     <button id="save-answer-button">Lưu câu trả lời</button>
 
-    {% if student_score is not none %}
-        <h4>Điểm số của bạn: {{ student_score }}</h4>
-    {% endif %}
-
-    <!-- Chỉ hiển thị phần chấm điểm nếu giáo viên đang chấm điểm -->
-    {% if is_teacher %}
-        <h4>Chấm điểm câu trả lời:</h4>
-        <input type="number" id="grade-input" min="0" max="10" value="0" />
-        <button id="save-grade-button">Lưu điểm</button>
-    {% endif %}
-
-    <script>
-        // Khi học viên nhấn "Lưu câu trả lời", lưu lại câu trả lời
-        document.getElementById("save-answer-button").onclick = function() {
-            var inputText = document.getElementById("answer-input").value;
-            console.log("Câu trả lời của học viên: ", inputText);
-            // Gửi câu trả lời của học viên lên server để lưu trữ
-            // Ví dụ đơn giản, chỉ gọi phương thức save_answer ở backend
-        };
-
-        // Khi giáo viên nhấn "Lưu điểm", lưu điểm cho câu trả lời
-        document.getElementById("save-grade-button").onclick = function() {
-            var grade = document.getElementById("grade-input").value;
-            console.log("Điểm chấm của giáo viên: ", grade);
-            // Gọi phương thức grade_answer từ backend để lưu điểm số
-        };
-    </script>
-</div>
