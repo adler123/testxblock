@@ -6,15 +6,15 @@ function MyXBlock(runtime, element) {
     }
 
     var handlerUrl = runtime.handlerUrl(element, 'save_question');
-
-    $('#save-answer-button',element).click(function(eventObject) {
-        alert('test')
-        // $.ajax({
-        //     type: "POST",
-        //     url: handlerUrl,
-        //     data: JSON.stringify({"hello": "world"}),
-        //     success: updateCount
-        // });
+    var data = {};
+    data['question'] = $('#question-input', element).val();
+    $('#save-question-button',element).click(function(eventObject) {
+        $.ajax({
+            type: "POST",
+            url: handlerUrl,
+            data: JSON.stringify(data),
+            success: updateCount
+        });
     });
 
     $(function ($) {
