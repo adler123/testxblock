@@ -7,7 +7,7 @@ function MyXBlock(runtime, element) {
 
     var handlerUrl = runtime.handlerUrl(element, 'save_question');
 
-    $('#save-answer-button').click(function(eventObject) {
+    $('#save-answer-button',element).click(function(eventObject) {
         $.ajax({
             type: "POST",
             url: handlerUrl,
