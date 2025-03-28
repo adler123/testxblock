@@ -54,14 +54,17 @@ class MyXBlock(XBlock):
  
     @XBlock.json_handler
     def save_question(self, data, suffix=''):
+        print("test")
+        print(data)
         self.question_text=data['question']
         self.save()
         return {"status": "ok"}
-    def save_answer(self, answer):
+    @XBlock.json_handler
+    def save_answer(self, data, suffix=''):
         """
-        Phương thức để lưu câu trả lời của học viên vào hệ thống.
+        Phương thức để lưu câu trả lời của học viên vào hệ thống.int
         """
-        self.student_answer = answer
+        self.student_answer = data['question']
         self.save()  # Lưu lại trạng thái
 
     def grade_answer(self, score):

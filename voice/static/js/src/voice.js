@@ -13,7 +13,7 @@ function MyXBlock(runtime, element) {
             type: "POST",
             url: handlerUrl,
             data: JSON.stringify(data),
-            success: updateCount
+            success: "updateCount"
         });
     });
 
@@ -21,15 +21,15 @@ function MyXBlock(runtime, element) {
         /* Here's where you'd do things on page load. */
     });
 
-    function saveQuestion() {
-        var saveqsurl=runtime.handlerUrl(element, 'save_question');
+    var anshandlerUrl = runtime.handlerUrl(element, 'save_answer');
+    var data = {};
+    data['answer'] = $('#answer-input', element).val();
+    $('#save-answer-button',element).click(function(eventObject) {
         $.ajax({
             type: "POST",
-            url: saveqsurl,
-            data: JSON.stringify({"hello": "world"}),
+            url: anshandlerUrl,
+            data: JSON.stringify(data),
             success: "updateCount"
         });
-        
-        alert('Câu hỏi đã được lưu!');
-    }
+    });
 }
