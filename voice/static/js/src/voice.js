@@ -5,14 +5,14 @@ function MyXBlock(runtime, element) {
         $('.count', element).text(result.count);
     }
 
-    var handlerUrl = runtime.handlerUrl(element, 'increment_count');
+    var handlerUrl = runtime.handlerUrl(element, 'save_question');
 
-    $('p', element).click(function(eventObject) {
+    $('#save-answer-button').click(function(eventObject) {
         $.ajax({
             type: "POST",
             url: handlerUrl,
             data: JSON.stringify({"hello": "world"}),
-            success: updateCount
+            success: "updateCount"
         });
     });
 
